@@ -7,7 +7,7 @@
 
 # Advice: go to folder 'utilis' and review the software in 'general_utils.sh',
 # 'specific_utitils.sh', 'toolbox_utils.sh' and 'utils_library.sh' to customize
-# the the environment software to your specific needs.
+# the environment software to your specific needs.
 
 # Also if you will set up productivity software check  folder 'productivity' as
 # well. Consider that it sets 'Fish shell' and 'Terminator', you may wish to
