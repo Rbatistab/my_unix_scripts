@@ -15,6 +15,18 @@
 ###############################################################################
 
 
+###############################################################################
+#																	Variables[TODO]:																	#
+###############################################################################
+#CURRENT_DIR=
+# Enable project dir as local variable to be used in other scripts
+#declare -xr ENV_SET_UP_DIR=$(dirname $(realpath $0) )
+#UTILS_DIR=$ENV_SET_UP_DIR/src/bin/utils
+
+# Calling to variable_handler which contains the rest of environment variables
+#echo "Loading environment variables:"
+#source $UTILS_DIR/variable_handler.sh
+#declare_utils_variables
 
 ###############################################################################
 # 																	Functions:																#
@@ -48,15 +60,29 @@ print_help_message(){
 #		None
 ###############################################################################
 install_utils(){
-  echo "Updating:"
-  #sudo apt update
+  sudo apt update
   echo "sudo apt update"
-  echo "Installing utils"
+  echo "Installing utils..."
   # Execute the scripts for basic utils only with a yes command:
-  yes | bash set_ups/utils/utils.sh
+  #yes | bash set_ups/utils/utils.sh
+  echo "yes | bash set_ups/utils/utils.sh"
 }
 
-# Let's add a install_productivities here!
+
+###############################################################################
+# Installs the utils located at							---------> update me
+# Globals:
+#		None
+# Arguments:
+#   None
+# Retuns:
+#		None
+###############################################################################
+install_fulls(){
+  echo "Installing productivity applications..."
+  # Execute the scripts for productivity utils with a yes command:
+  echo "yes | bash set_ups/productivity/productivity.test.sh"
+}
 
 ###############################################################################
 # 															Progam excecution:												 		#
@@ -76,7 +102,7 @@ elif [[ $# != 0 ]]; then
   # User ask for basic and productivity install:
   elif [[ ($1 == "--full") || ($1 == "-f")]]; then
     install_utils
-    echo "this is a full install"
+		install_fulls
   else
     echo "Wrong argument given, unknown command '$1'"
     print_help_message
