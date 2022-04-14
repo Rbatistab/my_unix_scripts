@@ -28,6 +28,10 @@
 #source $UTILS_DIR/variable_handler.sh
 #declare_utils_variables
 
+# Importing colors:
+# source /colors/colors.sh      							-----> later
+
+
 ###############################################################################
 # 																	Functions:																#
 ###############################################################################
@@ -49,7 +53,6 @@ print_help_message(){
   echo "[-h], [--help]:		Help"
 }
 
-
 ###############################################################################
 # Updates the system and then install the utils located at							---------> update me
 # Globals:
@@ -60,14 +63,12 @@ print_help_message(){
 #		None
 ###############################################################################
 install_utils(){
-  sudo apt update
-  echo "sudo apt update"
+  echo "Starting instalation, updating..."
+	sudo apt update
   echo "Installing utils..."
   # Execute the scripts for basic utils only with a yes command:
-  #yes | bash set_ups/utils/utils.sh
-  echo "yes | bash set_ups/utils/utils.sh"
+  yes | bash set_ups/utils/utils.sh
 }
-
 
 ###############################################################################
 # Installs the utils located at							---------> update me
@@ -81,15 +82,15 @@ install_utils(){
 install_fulls(){
   echo "Installing productivity applications..."
   # Execute the scripts for productivity utils with a yes command:
-  echo "yes | bash set_ups/productivity/productivity.test.sh"
+  yes | bash set_ups/productivity/productivity.sh
 }
+
+
 
 ###############################################################################
 # 															Progam excecution:												 		#
 ###############################################################################
 
-# Importing colors:
-# source /colors/colors.sh      							-----> later
 
 # Instalation options:
 if [ -z "$1" ]; then
