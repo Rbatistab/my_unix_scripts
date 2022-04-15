@@ -50,19 +50,20 @@ shell_options_menu(){
   select shell; do
     case $shell in
 	    'Zsh')
-		    echo "zsh"
+		    echo "yes | bash shell_setups/fish_shell.sh"
 			  break
 		    ;;
 	    'Fish')
-	  	  echo "fish"
+	  	  yes | bash shell_setups/zsh_shell.sh
 			  break
 		    ;;
 	  	'Both')
-		  	echo "both"
+	  	  yes | bash shell_setups/zsh_shell.sh
+	  	  yes | bash shell_setups/fish_shell.sh
 				break
 		  	;;
 	  	'None')
-		  	echo "none"
+		  	yes | bash shell_setups/bash_enhacement.sh
 				break
 		  	;;
 	  	*)
