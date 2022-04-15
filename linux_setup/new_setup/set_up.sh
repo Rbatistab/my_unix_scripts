@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Fucking read me:https://stackoverflow.com/questions/16483119/an-example-of-how-to-use-getopts-in-bash
+# https://google.github.io/styleguide/shellguide.html#s5.5-case-statement
+
 ###############################################################################
 # This script is to help you set up an environment quickly after a new installa
 # tion of an OS by automating the steps of searching and running the commands
