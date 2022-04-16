@@ -50,11 +50,11 @@ shell_options_menu(){
   select shell; do
     case $shell in
 	    'Zsh')
-		    echo "yes | bash shell_setups/fish_shell.sh"
+	  	  yes | bash shell_setups/zsh_shell.sh
 			  break
 		    ;;
 	    'Fish')
-	  	  yes | bash shell_setups/zsh_shell.sh
+		    yes | bash shell_setups/fish_shell.sh
 			  break
 		    ;;
 	  	'Both')
@@ -79,8 +79,7 @@ shell_options_menu(){
 # 																Program Execution														#
 ###############################################################################
 # Installing terminator terminal
-#install_terminator
-echo "install_terminator"
+install_terminator
 # Menu for select options of shell
 shells=('Zsh' 'Fish' 'Both' 'None')
 

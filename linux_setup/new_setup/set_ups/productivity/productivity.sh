@@ -15,4 +15,4 @@
 
 bash set_ups/productivity/general_productivity.sh
 bash set_ups/productivity/terminal_enhacement.sh
-bash set_ups/productivity/abbreviations.sh
+#bash set_ups/productivity/abbreviations.sh   [TODO]

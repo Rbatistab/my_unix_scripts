@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ###############################################################################
-# 													Terminal Enhacement:															#
+# 																Fish Shell																	#
 ###############################################################################
 
 ###############################################################################
@@ -10,18 +10,12 @@
 # Also installs a powerfull terminall similar to iterm.
 ###############################################################################
 
-# Terminator - https://github.com/gnome-terminator/terminator/blob/master/INSTALL.md 
-echo "Installing Terminator..."
-sudo add-apt-repository ppa:mattrose/terminator
-sudo apt-get update
-sudo apt install terminator
-
-# Here we should interact with user to select shell
-
 # Fish - https://launchpad.net/~fish-shell/+archive/ubuntu/release-3
-#sudo apt-add-repository ppa:fish-shell/release-3
-#sudo apt-get update
-#sudo apt-get install fish
-#sudo (echo "/bin/fish") >> /etc/shells
-#chsh -s /bin/fish
+echo "Installing fish..."
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt update
+sudo apt install fish
+sudo (echo "/bin/fish") >> /etc/shells
+chsh -s /bin/fish
 
+# [TODO] add message about fish enhacement with Oh-my-fish and bass
