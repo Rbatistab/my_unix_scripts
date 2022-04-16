@@ -45,25 +45,25 @@ install_terminator(){
 #		None
 ###############################################################################
 shell_options_menu(){
-  PS3="Please select the option that best fits your preferences: "
+  PS3="Please select the option that best fits your preferences(None enhances bash alone): "
   #select shell in $shells; do
   select shell; do
     case $shell in
 	    'Zsh')
-	  	  yes | bash shell_setups/zsh_shell.sh
+	  	  yes | bash set_ups/productivity/shell_setups/zsh_shell.sh
 			  break
 		    ;;
 	    'Fish')
-		    yes | bash shell_setups/fish_shell.sh
+		    yes | bash set_ups/productivity/shell_setups/fish_shell.sh
 			  break
 		    ;;
 	  	'Both')
-	  	  yes | bash shell_setups/zsh_shell.sh
-	  	  yes | bash shell_setups/fish_shell.sh
+	  	  yes | bash set_ups/productivity/shell_setups/zsh_shell.sh
+	  	  yes | bash set_ups/productivity/shell_setups/fish_shell.sh
 				break
 		  	;;
 	  	'None')
-		  	yes | bash shell_setups/bash_enhacement.sh
+		  	yes | bash set_ups/productivity/shell_setups/bash_enhacement.sh
 				break
 		  	;;
 	  	*)
@@ -84,6 +84,6 @@ install_terminator
 shells=('Zsh' 'Fish' 'Both' 'None')
 
 # Call out to the shell options menu
-echo -ne "Do you wish to install any of these shells?\n"
+echo -ne "\nDo you wish to install any of these shells?\n"
 shell_options_menu "${shells[@]}"
 

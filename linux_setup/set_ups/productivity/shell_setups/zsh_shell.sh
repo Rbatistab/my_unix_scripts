@@ -22,3 +22,14 @@ $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/instal
 old_theme='ZSH_THEME="robbyrussell"'
 new_theme='ZSH_THEME="agnoster"'
 sed -i "s/$old_theme/$new_theme/" ~/.zshrc
+
+
+
+###############################################################################
+# 										Specific configuration lost to bash											#
+###############################################################################
+# Cargo's path:
+echo -ne "\n# Setup RUST environment setting in zsh - https://www.rust-lang.org/tools/install
+source $HOME/.cargo/env
+" >> ~/.zshrc
+

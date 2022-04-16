@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Fucking read me:https://stackoverflow.com/questions/16483119/an-example-of-how-to-use-getopts-in-bash
-# https://google.github.io/styleguide/shellguide.html#s5.5-case-statement
-
 ###############################################################################
 # This script is to help you set up an environment quickly after a new installa
 # tion of an OS by automating the steps of searching and running the commands
@@ -50,7 +47,7 @@
 #		None
 ###############################################################################
 print_help_message(){
-  echo "Usage: bash set_up.sh [--full] [-f]"
+  echo "Usage: $0 bash set_up.sh [--full] [-f]"
   echo "No arguments:			Installs basic utilities"
   echo "[-f], [--full]:		Full Installation: Installs basic and productivity software"
   echo "[-h], [--help]:		Help"
@@ -85,7 +82,7 @@ install_utils(){
 install_fulls(){
   echo "Installing productivity applications..."
   # Execute the scripts for productivity utils with a yes command:
-  yes | bash set_ups/productivity/productivity.sh
+  bash set_ups/productivity/productivity.sh
 }
 
 
