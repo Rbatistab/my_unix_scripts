@@ -7,6 +7,3 @@
 # This commands will install software to support your toolbox as well.
 ##############################################################################
 
-# Powerline fonts for terminal themes like (oh-m-fish) in fish
-echo "Installing Powerline..."
-yes | pip3 install --user powerline-status

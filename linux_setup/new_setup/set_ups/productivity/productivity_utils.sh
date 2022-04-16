@@ -27,3 +27,14 @@ echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbunt
 sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_21.10/Release.key -O "/etc/apt/trusted.gpg.d/home:manuelschneid3r.asc"
 sudo apt update
 sudo apt install albert
+
+# Powerline fonts - https://github.com/powerline/fonts
+sudo apt-get install fonts-powerline
+# clone
+#git clone https://github.com/powerline/fonts.git --depth=1
+# install
+#cd fonts
+#./install.sh
+# clean-up a bit
+#cd ..
+#rm -rf fonts
