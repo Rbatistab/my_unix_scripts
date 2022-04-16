@@ -1,95 +1,116 @@
 #!/bin/bash
 
-# ------------------------------------------------------------------------------
-# This script calls to load environment variables needed trhoug the process and
-# Sets up the ..........                                      --------------------->  finish me
+# Fucking read me:https://stackoverflow.com/questions/16483119/an-example-of-how-to-use-getopts-in-bash
+# https://google.github.io/styleguide/shellguide.html#s5.5-case-statement
 
-# ------------------------------------------------------------------------------
-#	-								-	* -> reference line
-# -------			Section template			--------
-# Description: 
-# ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
+###############################################################################
+# This script is to help you set up an environment quickly after a new installa
+# tion of an OS by automating the steps of searching and running the commands
+# required to install the software you need in your everyday activities.
 
+# Advice: go to folder 'utils' and review the software in 'general_utils.sh',
+# 'specific_utitils.sh', 'toolbox_utils.sh' and 'utils_library.sh' to customize      ----> review this whole thing
+# the environment software to your specific needs.
 
-# ------------------------------------------------------------------------------
-# -------                       Enabling testing                        --------
-# Description: 
-# ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
-
+# Also if you will set up productivity software check  folder 'productivity' as
+# well. Consider that it sets 'Fish shell' and 'Terminator', you may wish to
+# customize this as well.
+###############################################################################
 
 
-# ------------------------------------------------------------------------------
-# -------		Installation environment variables setup	--------
-# Description: Sets up variables for:
-#	- Directory paths
-#	- Text formating
-# These variables will only live during the installation, they are not permanent
-# ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
-
+###############################################################################
+#																	Variables[TODO]:																	#
+###############################################################################
+#CURRENT_DIR=
 # Enable project dir as local variable to be used in other scripts
-declare -xr ENV_SET_UP_DIR=$(dirname $(realpath $0) )
-UTILS_DIR=$ENV_SET_UP_DIR/src/bin/utils
+#declare -xr ENV_SET_UP_DIR=$(dirname $(realpath $0) )
+#UTILS_DIR=$ENV_SET_UP_DIR/src/bin/utils
 
 # Calling to variable_handler which contains the rest of environment variables
-echo "Loading environment variables:"
-source $UTILS_DIR/variable_handler.sh
-declare_utils_variables
+#echo "Loading environment variables:"
+#source $UTILS_DIR/variable_handler.sh
+#declare_utils_variables
 
-variables_testing				#             ---------->                Delete this assertion
-
-
-
+# Importing colors:
+# source /colors/colors.sh      							-----> later
 
 
+###############################################################################
+# 																	Functions:																#
+###############################################################################
+
+
+###############################################################################
+# Prints usage information to the user.
+# Globals:
+#		None
+# Arguments:
+#   None
+# Retuns:
+#		None
+###############################################################################
+print_help_message(){
+  echo "Usage: bash set_up.sh [--full] [-f]"
+  echo "No arguments:			Installs basic utilities"
+  echo "[-f], [--full]:		Full Installation: Installs basic and productivity software"
+  echo "[-h], [--help]:		Help"
+}
+
+###############################################################################
+# Updates the system and then install the utils located at							---------> update me
+# Globals:
+#		None
+# Arguments:
+#   None
+# Retuns:
+#		None
+###############################################################################
+install_utils(){
+  echo "Starting instalation, updating..."
+	sudo apt update
+  echo "Installing utils..."
+  # Execute the scripts for basic utils only with a yes command:
+  yes | bash set_ups/utils/utils.sh
+}
+
+###############################################################################
+# Installs the utils located at							---------> update me
+# Globals:
+#		None
+# Arguments:
+#   None
+# Retuns:
+#		None
+###############################################################################
+install_fulls(){
+  echo "Installing productivity applications..."
+  # Execute the scripts for productivity utils with a yes command:
+  yes | bash set_ups/productivity/productivity.sh
+}
 
 
 
-
-# Assertions utilities
-#source $UTILS_DIR/assertions.sh
-
-#echo "Quick assertion testing"
-#echo "Happy:"
-#last_command_assertion
-#echo "Sad:"
-#ehco "bad asserstion"
-#last_command_assertion
-
-#echo "command_execution_and_assertion"
-#echo "Happy:"
-#command_execution_and_assertion echo "hola"
-#echo "Sad:"
-#command_execution_and_assertion ehco "hola"
-
-#SET_UP_SUCCESSFULL=1
-
-# Triggering the set up installation file
-#bash src/install_test.sh
-
-#if [[ SET_UPSUCCESSFULL == 1  ]]; then
-#  echo "Success"
-#else
-# echo "fail"
-#fi
+###############################################################################
+# 															Progam excecution:												 		#
+###############################################################################
 
 
-# ------------------------------------------------------------------------------
-# -------			Final cleaning				--------
-# Description:
-# 	- Cleans variables exported in variable_handler.sh
-# ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
+# Instalation options:
+if [ -z "$1" ]; then
+  # User adds no argument, hence asks for basic utilities install:
+ 	install_utils
+elif [[ $# != 0 ]]; then
+  # User asks for help:
+  if [[ ($1 == "--help") || ($1 == '-h')]]; then
+    print_help_message
+  # User ask for basic and productivity install:
+  elif [[ ($1 == "--full") || ($1 == "-f")]]; then
+    install_utils
+		install_fulls
+  else
+    echo "Wrong argument given, unknown command '$1'"
+    print_help_message
+  fi
+fi
 
-clean_utils_variables
-unset -f ENV_SET_UP_DIR
-unset -f UTILS_DIR
-
-if [ -z ${GREEN+x} ]; then echo "no"; else echo "yes"; fi
-
-# Add an exit status, looks cool
-
-
-# ------------------------------------------------------------------------------
+###############################################################################
