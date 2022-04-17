@@ -7,3 +7,7 @@
 # This commands will install software to support your toolbox as well.
 ##############################################################################
 
+# Importing text library functions to format text and asseritions
+source utils/lib.sh
+
+# Add your specific utils here

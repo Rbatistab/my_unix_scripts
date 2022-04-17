@@ -15,7 +15,7 @@
 ###############################################################################
 
 
-###############################################################################
+############################################################################### ----> Do I really need this section?
 #																	Variables[TODO]:																	#
 ###############################################################################
 #CURRENT_DIR=
@@ -28,8 +28,11 @@
 #source $UTILS_DIR/variable_handler.sh
 #declare_utils_variables
 
-# Importing colors:
-# source /colors/colors.sh      							-----> later
+###############################################################################
+#																Importing utils																#
+###############################################################################
+# Importing library functions to be used in utilities like formatting text:
+source utils/lib.sh
 
 
 ###############################################################################
@@ -47,14 +50,14 @@
 #		None
 ###############################################################################
 print_help_message(){
-  echo "Usage: $0 bash set_up.sh [--full] [-f]"
-  echo "No arguments:			Installs basic utilities"
-  echo "[-f], [--full]:		Full Installation: Installs basic and productivity software"
-  echo "[-h], [--help]:		Help"
+  echo -ne "\nUsage: $0 bash set_up.sh [--full] [-f]
+No arguments:			Installs basic utilities
+	[-f], [--full]:		Full Installation: Installs basic and productivity software
+	[-h], [--help]:		Help\n"
 }
 
 ###############################################################################
-# Updates the system and then install the utils located at							---------> update me
+# Updates the system and then install the utils located at set_ups/utils
 # Globals:
 #		None
 # Arguments:
@@ -63,15 +66,16 @@ print_help_message(){
 #		None
 ###############################################################################
 install_utils(){
-  echo "Starting instalation, updating..."
+  green_text "Starting instalation, updating..."
 	sudo apt update
-  echo "Installing utils..."
+  command_assertion
+	green_text "Installing basic utils..."
   # Execute the scripts for basic utils only with a yes command:
   yes | bash set_ups/utils/utils.sh
 }
 
 ###############################################################################
-# Installs the utils located at							---------> update me
+# Installs the productivity tools found in directory set_ups/productivity
 # Globals:
 #		None
 # Arguments:
@@ -80,7 +84,7 @@ install_utils(){
 #		None
 ###############################################################################
 install_fulls(){
-  echo "Installing productivity applications..."
+  green_text "Installing productivity applications..."
   # Execute the scripts for productivity utils with a yes command:
   bash set_ups/productivity/productivity.sh
 }
@@ -93,7 +97,7 @@ install_fulls(){
 
 
 # Instalation options:
-if [ -z "$1" ]; then
+if 	[[ -z "$1" ]]; then
   # User adds no argument, hence asks for basic utilities install:
  	install_utils
 elif [[ $# != 0 ]]; then
@@ -105,9 +109,17 @@ elif [[ $# != 0 ]]; then
     install_utils
 		install_fulls
   else
-    echo "Wrong argument given, unknown command '$1'"
+    bred_text "[ERROR]	Wrong argument given, unknown command '$1'"
     print_help_message
   fi
 fi
 
-###############################################################################
+# Final information to the user on the state of success
+if	[ $? -eq 0 ]; then
+	bgreen_text "Done! Execution successful."
+	bgreen_text "Return: ${?}"
+else
+	bred_text "Unsuccessful execution."
+	bred_text "Return: ${?}"
+fi
+##############################################################################

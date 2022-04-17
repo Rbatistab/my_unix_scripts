@@ -13,27 +13,36 @@
 # just paste what you need into "specific_utilities.sh"
 ###############################################################################
 
+# Importing text library functions to format text and asseritions
+source utils/lib.sh
+
 # Curl - https://curl.se
-echo "Installing curl..."
+green_text "Installing curl..."
 sudo apt install curl
+command_assertion
 
 # Git - https://git-scm.com/
-echo "Installing git..."
+green_text "Installing git..."
 sudo apt install git
+command_assertion
 
 # Xclip - https://github.com/astrand/xclip
-echo "Installing Xclip..."
+green_text "Installing Xclip..."
 sudo apt install xclip
+command_assertion
 
 # Pip - https://pip.pypa.io/en/stable/installation/
-echo "Installing pip in python3..."
+green_text "Installing pip in python3..."
 sudo apt install python3-pip
+command_assertion
 
 # For Okular - https://apps.kde.org/okular/ -> snap store
-echo "Installing okular..."
+green_text "Installing okular..."
 sudo snap install okular
+command_assertion
 
 # Telegram - https://snapcraft.io/telegram-desktop
-echo "Installing telegram..."
+green_text "Installing telegram..."
 sudo snap install telegram-desktop
+command_assertion
 

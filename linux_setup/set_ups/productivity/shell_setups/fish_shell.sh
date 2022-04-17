@@ -10,12 +10,16 @@
 # Also installs a powerfull terminall similar to iterm.
 ###############################################################################
 
-# Fish - https://launchpad.net/~fish-shell/+archive/ubuntu/release-3
-echo "Installing fish..."
+# Importing text library functions to format text and asseritions
+source utils/lib.sh
+
+# Fish - https://launchpad.net/~fish-shell/+archive/ubuntu/release-e
+bgreen_text "Installing fish..."
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt update
 sudo apt install fish
 sudo (echo "/bin/fish") >> /etc/shells
 chsh -s /bin/fish
+command_assertion
 
 # [TODO] add message about fish enhacement with Oh-my-fish and bass

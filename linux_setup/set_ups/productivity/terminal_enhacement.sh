@@ -10,6 +10,8 @@
 # autocompletion, git symbols and information, and a friendly UI to work with.
 ###############################################################################
 
+# Importing text library functions to format text and asseritions
+source utils/lib.sh
 
 
 ###############################################################################
@@ -28,10 +30,11 @@
 ###############################################################################
 install_terminator(){
 	# Terminator - https://github.com/gnome-terminator/terminator/blob/master/INSTALL.md 
-	echo "Installing Terminator..."
+	bgreen_text "Installing Terminator..."
 	sudo add-apt-repository ppa:mattrose/terminator
 	sudo apt-get update
 	sudo apt install terminator
+	command_assertion
 }
 
 ###############################################################################
@@ -67,7 +70,7 @@ shell_options_menu(){
 				break
 		  	;;
 	  	*)
-		  	echo "Invlid option. Please select only an option from 1 to $#."			
+		  	red_text "Invlid option. Please select only an option from 1 to $#."			
 		  	;;
   	esac
 	done
