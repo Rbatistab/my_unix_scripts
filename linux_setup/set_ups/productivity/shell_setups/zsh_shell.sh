@@ -12,14 +12,14 @@
 source utils/lib.sh
 
 # Zsh shell - https://www.geeksforgeeks.org/how-to-install-z-shellzsh-on-linux/
-bgreen_text "Installing zsh..."
+green_text "Installing zsh..."
 sudo apt-get update
 sudo apt-get install zsh
 chsh -s /usr/bin/zsh
 command_assertion
 
 # Oh-my-zsh - https://ohmyz.sh/#install
-bgreen_text "Installing Oh-my-zsh..."
+green_text "Installing Oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 command_assertion
 
@@ -34,7 +34,7 @@ command_assertion
 # 										Specific configuration lost to bash											#
 ###############################################################################
 # Cargo's path:
-bgreen "Updating RUST's cargo path to ~/.zshrc"
+green "Updating RUST's cargo path to ~/.zshrc"
 echo -ne "\n# Setup RUST environment setting in zsh - https://www.rust-lang.org/tools/install
 source $HOME/.cargo/env
 " >> ~/.zshrc

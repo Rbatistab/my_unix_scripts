@@ -14,7 +14,7 @@
 source utils/lib.sh
 
 # Fish - https://launchpad.net/~fish-shell/+archive/ubuntu/release-e
-bgreen_text "Installing fish..."
+green_text "Installing fish..."
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt update
 sudo apt install fish
