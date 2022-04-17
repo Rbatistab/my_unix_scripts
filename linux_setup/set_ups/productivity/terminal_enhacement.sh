@@ -28,12 +28,14 @@ source utils/lib.sh
 #   None
 ###############################################################################
 install_terminator(){
+  yellow_text "Able to install Terminator but there are failures on any sudo apt update from the terminator repos"
+  byello_text "[Skipping]	Terminator - https://albertlauncher.github.io/installing/#using-official-albert-repositories"
   # Terminator - https://github.com/gnome-terminator/terminator/blob/master/INSTALL.md 
-  green_text "Installing Terminator..."
-  sudo add-apt-repository ppa:mattrose/terminator
-  sudo apt-get update
-  sudo apt install terminator
-  command_assertion
+  #green_text "Installing Terminator..."
+  #sudo add-apt-repository ppa:mattrose/terminator
+  #sudo apt-get update
+  #sudo apt install terminator
+  #command_assertion
 }
 
 ###############################################################################

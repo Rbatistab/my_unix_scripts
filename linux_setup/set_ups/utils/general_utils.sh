@@ -45,4 +45,3 @@ command_assertion
 green_text "Installing telegram..."
 sudo snap install telegram-desktop
 command_assertion
-`

@@ -1,5 +1,5 @@
 # my_unix_scripts
-Russell's personal scripts
+RB's personal scripts
 For a better visual experience open this file in a markdown editor, like https://dillinger.io/ or see in git
 
 # How to use this directory?
@@ -17,78 +17,52 @@ $ git clone git@github.com:Rbatistab/my_unix_scripts.git
 ```
 
 This will clone several folders with one or more scripts to do a particular function:
-1. A WallPaper slideshow
-2. An environment set up automation
+1. An environment set up automation
+2. A WallPaper slideshow(in progress)
 
-## 1 - Linux environment automated setup with productivity features(update me)
+## 1 - Linux environment automated setup with productivity features:
+This program helps quickly set up an environment after installing an OS.
+The way better use of this is program is to customized it to add the everyday sofware you use into the set_up scripts, so that next time you need to format or buy a new computer you can do it very quickly, without finfing the commands from scratch again. 
+Also this program provides productuvity tools that help you save time and energy on everyday tasks, like the shell enhacements.
+
 ### *Basic install:* 
 
-[Curl](https://curl.se) - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - [Xclip](https://github.com/astrand/xclip) - [Pip]()  - [Matplotlib]()  - [Numpy]()  - [RUST]()  - [glxinfo]()  - [clinfo]()  - [Freecad]()  - [VScode]()  - [Okular](https://apps.kde.org/okular/)  - [Telegram](https://snapcraft.io/telegram-desktop) 
+[Curl](https://curl.se) - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - [Xclip](https://github.com/astrand/xclip) - [Pip](https://pip.pypa.io/en/stable/installation/) - [Okular](https://apps.kde.org/okular/) - [Telegram](https://snapcraft.io/telegram-desktop) - [VSCode](https://code.visualstudio.com/docs/setup/linux) - [Freecad](https://wiki.freecadweb.org/Installing_on_Linux) - [RUST](https://www.rust-lang.org/tools/install)
 
 ### *Full (prod):* 
 
-Curl - Git - Xclip - Pip - Matplotlib - Numpy - RUST - glxinfo - clinfo - Freecad - ROS2 - VScode - Okular - Telegram - CopyQ - Albert - Powerline -  Fish - Oh-my-fish - Terminator - Todoist
+Basic install + [Todoist](https://snapcraft.io/todoist) - [CopyQ](https://github.com/hluk/CopyQ) - [Albert](https://albertlauncher.github.io/installing/#using-official-albert-repositories) - [Powerline fonts](https://github.com/powerline/fonts) - [Terminator](https://github.com/gnome-terminator/terminator/blob/master/INSTALL.md)
+Plus a terminal enhacemnt, either from [enhancing Bash](https://github.com/ohmybash/oh-my-bash) or from installing and setting up [zsh](https://www.zsh.org/) or [fish](https://fishshell.com/) shells.
 
+### Advice to anyone reading:
+I'm using my personal configuration and set up, please navigate to these files and cutomize them to what you need:
+* `/my_unix_scripts/linux_setup/set_ups/utils/utils.sh`
+* `/my_unix_scripts/linux_setup/set_ups/productivity/productivity/productivity.sh`
+
+Add a `.vimrc` config, docker, intelliJ or whatever is best for you to install in as many manual steps as possible :)
+
+### One more, buggy, thing
+There are issues with `Albert` and `Terminator` related to their repos that are currently not working. I'm commenting the instructions to install them both, but feel free to uncomment at `/my_unix_scripts/linux_setup/set_ups/productivity/terminal_enhacement` line 30, or by looking into [here](https://github.com/gnome-terminator/terminator/blob/master/INSTALL.md)
 
 ## Basic install:
 
-**Note:** If you need to install ROCm open file `setup_bash_basic` in any text editor, and as says in line 9, remove the `#`s in lines 11 and 12
-
-1. Run: 
-```
-chmod +x setup_bash.sh
-sudo ./setup_bash.sh
-```
-2. Set your ssh key: [GitHub SSH guide](https://docs.gitlab.com/ee/ssh/)
-3. If you installed ROCm chech that you have these folders: 
-    * /opt/rocm/bin/rocminfo
-    * /opt/rocm/opencl/bin/clinfo
-    * or run:
-      ```
-      clinfo 
-      ```
-
+1. Go to `linux_setup` directory and run:
+  ```
+  chmod +x install.sh
+  ./install.sh
+  ```
 
 ## Full install(includes productivity system):
 
-
-**Note:** If you need to install ROCm open file `setup_bash_basic` in any text editor, and as says in line 9, remove the `#`s in lines 11 and 12
-
-1. Run:
+1. Go to `linux_setup` directory and run:
   ```
-  chmod +x setup_bash.sh
-  sudo ./setup_bash.sh
+  chmod +x install.sh
+  ./install.sh
   ```
-2. Open Terminator, Right click in the terminal -> Preferences -> Profiles -> Command
-    * Check "Run command as login shell"
-    * Check "Run a custom command instead of my shell"
-    * Custom command: /bin/fish
-    * When command exits: "Hold the terminal open"
-3. Restart Terminator, it should run on fish
-4. Run:  
-  ```
-  sudo ./setup_fish
-  ```
-5. Set up CopyQ:
+2. Set up CopyQ:
     * Open CopyQ -> Preferences -> Autostart
     * Go to Ubuntu settings -> Keyboard shortcuts -> find the "+" simbol at the end, and add your shortcut
     * for example alt - ctrl - c
-6. Set up your albert abbreviations:
-    * Open Albert -> Settings -> General
-      - Hotkey: --set your hot key to search--
-      - Check Autostart on login
-    * Extensions -> WebSearch
-      - Click the "+" sign and add the commands in Albert_commands.txt, is easier if you use copyQ :)
-7. Set your ssh key: [GitHub SSH guide](https://docs.gitlab.com/ee/ssh/)
-8. Add Fish abbreviations:
-  * Run: 
-  ```
-  cd ~/.config/fish/
-  sudo nano config.fish
-  ```
-  *  Add the whole content of the file `shortcuts\fish_abbreviations.txt`
-  * Save
-
 
 ## 2 - WallPaper slideshow script(Not working)
 
