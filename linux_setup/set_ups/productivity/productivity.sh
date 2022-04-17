@@ -1,17 +1,17 @@
 #!/bin/bash
 
 ###############################################################################
-# 																Productivity																#
+#                                 Productivity                                #
 ###############################################################################
 
 ###############################################################################
 # This calls to 3 different script files to install utilities:
-# - general_productivity:	General purpose utilities that support other software
-#													or your working workflow
-# - terminal_enhacement: 	Offers different shells and enhacements to make an
-#													smoother workflow and a nicer environment 
-# - abbreviations:				Abbreviations for common commands with lesser
-#													characters, like aliases
+# - general_productivity: General purpose utilities that support other software
+#                         or your working workflow
+# - terminal_enhacement:  Offers different shells and enhacements to make an
+#                         smoother workflow and a nicer environment 
+# - abbreviations:        Abbreviations for common commands with lesser
+#                         characters, like aliases
 ###############################################################################
 
 yes | bash set_ups/productivity/general_productivity.sh
