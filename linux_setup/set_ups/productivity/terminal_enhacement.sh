@@ -50,16 +50,16 @@ shell_options_menu(){
   select shell; do
     case $shell in
 	    'Zsh')
-	  	  yes | bash set_ups/productivity/shell_setups/zsh_shell.sh
+	  	  bash set_ups/productivity/shell_setups/zsh_shell.sh
 			  break
 		    ;;
 	    'Fish')
-		    yes | bash set_ups/productivity/shell_setups/fish_shell.sh
+		    bash set_ups/productivity/shell_setups/fish_shell.sh
 			  break
 		    ;;
 	  	'Both')
-	  	  yes | bash set_ups/productivity/shell_setups/zsh_shell.sh
-	  	  yes | bash set_ups/productivity/shell_setups/fish_shell.sh
+	  	  bash set_ups/productivity/shell_setups/zsh_shell.sh
+	  	  bash set_ups/productivity/shell_setups/fish_shell.sh
 				break
 		  	;;
 	  	'None')
